@@ -22,7 +22,8 @@ If following the [boto convention](http://boto.readthedocs.org/en/latest/s3_tut.
 
 Generate a manifest:
 ```python
->>> manifest = gen.generate_manifest(['mybucket/folder1/folder2', 'mybucket/folder3'])
+>>> manifest = gen.generate_manifest(['mybucket/folder1/folder2', 
+                                      'mybucket/folder3'])
 
 {'entries': [{'mandatory': True,
               'url': u's3://mybucket/folder1/folder2/foo.json'},
