@@ -103,8 +103,8 @@ class ManifestGenerator(object):
         bucket = self.conn.get_bucket(buckpath)
 
         key = Key(bucket, keypath)
-        print("Writing manifest to {}".join(['s3://', key.bucket.name,
-                                             key.name]))
+        print("Writing manifest to {}".format(join(['s3://', key.bucket.name,
+                                              key.name])))
         key.set_contents_from_string(
             json.dumps(manifest, sort_keys=True, indent=4)
         )
