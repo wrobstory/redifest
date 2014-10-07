@@ -10,7 +10,7 @@
 Does what it says on the tin: Generates a [Redshift .manifest file](http://docs.aws.amazon.com/redshift/latest/dg/loading-data-files-using-manifest.html) given a list of S3 buckets. Can write said manifest to file, or back to S3.
 
 API
-___
+---
 
 Create a manifest generator with your AWS creds:
 
