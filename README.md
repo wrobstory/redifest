@@ -1,5 +1,9 @@
-### Redifest: Generate a Redshift .manifest file for a given S3 bucket/folder
-
+ ______     ______     _____     __     ______   ______     ______     ______  
+/\  == \   /\  ___\   /\  __-.  /\ \   /\  ___\ /\  ___\   /\  ___\   /\__  _\ 
+\ \  __<   \ \  __\   \ \ \/\ \ \ \ \  \ \  __\ \ \  __\   \ \___  \  \/_/\ \/ 
+ \ \_\ \_\  \ \_____\  \ \____-  \ \_\  \ \_\    \ \_____\  \/\_____\    \ \_\ 
+  \/_/ /_/   \/_____/   \/____/   \/_/   \/_/     \/_____/   \/_____/     \/_/ 
+                                                                               
 Does what it says on the tin: Generates a [Redshift .manifest file](http://docs.aws.amazon.com/redshift/latest/dg/loading-data-files-using-manifest.html) given a list of S3 buckets. Can write said manifest to file, or back to S3.
 
 API
