@@ -29,9 +29,9 @@ class ManifestGenerator(object):
         aws_secret_access_key: str
         """
         if aws_access_key_id and aws_secret_access_key:
-            self.conn = S3Connection()
-        else:
             self.conn = S3Connection(aws_access_key_id, aws_secret_access_key)
+        else:
+            self.conn = S3Connection()
 
     def _get_bucket_and_key(self, path):
         """Get top-level bucket and nested key path"""
