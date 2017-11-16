@@ -33,6 +33,12 @@ Generate a manifest:
                'url': u's3://mybucket/folder3/bar.json'}]}
 ```
 
+Generate a manifest with filtering on S3 keys (e.g. any file that contains `.bzip2` in its name):
+```python
+>>> manifest = gen.generate_manifest(['mybucket/folder1/folder2', 
+                                      'mybucket/folder3'], filter=".bzip2")
+```
+
 You can provide an optional path to write the manfifest back to S3 as part of the call
 to generate the manifest:
 ```python

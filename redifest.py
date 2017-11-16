@@ -44,7 +44,7 @@ class ManifestGenerator(object):
         return buckpath, keypath
 
     def generate_manifest(self, buckets, mandatory=True, path=None,
-                          target=None):
+                          target=None, filter=None):
         """
         Given a list of S3 buckets, generate a .manifest file (JSON format).
 
@@ -61,6 +61,8 @@ class ManifestGenerator(object):
             Optional file path to write manifest file.
         target: str, default None
             Optional S3 path to write manifest file
+        filter: str, default None
+            Optional filter for manifest entries
         """
         manifest = {'entries': []}
         for buck in buckets:
@@ -69,14 +71,15 @@ class ManifestGenerator(object):
             print('Getting bucket {}...'.format(buckpath))
             bukkit = self.conn.get_bucket(buckpath)
 
-            print('Getting keys for bucket {} in key folder{}...'.format(
+            print('Getting keys for bucket {} in key folder {}...'.format(
                 buckpath, keypath
             ))
             for key in bukkit.list(keypath):
-                manifest['entries'].append({
-                    'url': '/'.join(['s3:/', key.bucket.name, key.name]),
-                    'mandatory': mandatory
-                    })
+                if (filter is None or filter in key.name):
+                    manifest['entries'].append({
+                        'url': '/'.join(['s3:/', key.bucket.name, key.name]),
+                        'mandatory': mandatory
+                        })
 
         if path:
             with open(path, 'w') as fp:
